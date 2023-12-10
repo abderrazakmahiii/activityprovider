@@ -7,40 +7,6 @@ const port = process.env.PORT || 3001;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Sample JSON data for each tracked type
-const sampleData = {
-  pageTimeData: {
-    userId1: { page1: 500, page2: 300 },
-    userId2: { page1: 200, page2: 100 },
-  },
-  userProgressData: {
-    userId1: 80,
-    userId2: 50,
-  },
-  loginFrequency: 10,
-  lessonCompletionRates: {
-    userId1: { lesson1: 80, lesson2: 50 },
-    userId2: { lesson1: 90, lesson2: 60 },
-  },
-  userFeedback: [
-    { userId: 'user1', feedback: 'Great experience!' },
-    { userId: 'user2', feedback: 'Needs improvement.' },
-  ],
-  errorLogs: [
-    { userId: 'user1', error: 'Page not found' },
-    { userId: 'user2', error: 'Server error' },
-  ],
-  userPaths: {
-    userId1: ['/page1', '/page2', '/page3'],
-    userId2: ['/page1', '/page2'],
-  },
-  demographicData: {
-    userId1: { age: 25, gender: 'male' },
-    userId2: { age: 30, gender: 'female' },
-  },
-  performanceMetrics: { metric1: 50, metric2: 75 },
-};
-
 // Endpoint for getting aggregated performance data
 app.get('/', (req, res) => {
   const homepage = `
@@ -64,41 +30,26 @@ app.get('/', (req, res) => {
   res.send(homepage);
 });
 
-// Endpoint for each tracked type
-app.get('/page-time-data', (req, res) => {
-  res.json(sampleData.pageTimeData);
-});
+// Endpoint for handling parameters
+app.post('/parameters', async (req, res) => {
+  // Parse the parameter data from the request body
+  const newParameters = req.body;
 
-app.get('/user-progress-data', (req, res) => {
-  res.json(sampleData.userProgressData);
-});
+  // Store the parameters in a separate object
+  const parameters = { ...sampleData, ...newParameters };
 
-app.get('/login-frequency', (req, res) => {
-  res.json({ loginFrequency: sampleData.loginFrequency });
-});
+  // Use the parameters to update the data in the routes
+  app.get('/page-time-data', async (req, res) => {
+    res.json(parameters.pageTimeData);
+  });
 
-app.get('/lesson-completion-rates', (req, res) => {
-  res.json(sampleData.lessonCompletionRates);
-});
+  app.get('/user-progress-data', async (req, res) => {
+    res.json(parameters.userProgressData);
+  });
 
-app.get('/user-feedback', (req, res) => {
-  res.json(sampleData.userFeedback);
-});
+  // ... and so on for all endpoints
 
-app.get('/error-logs', (req, res) => {
-  res.json(sampleData.errorLogs);
-});
-
-app.get('/user-paths', (req, res) => {
-  res.json(sampleData.userPaths);
-});
-
-app.get('/demographic-data', (req, res) => {
-  res.json(sampleData.demographicData);
-});
-
-app.get('/performance-metrics', (req, res) => {
-  res.json(sampleData.performanceMetrics);
+  res.json({ message: 'Parameters updated' });
 });
 
 // Start the server
