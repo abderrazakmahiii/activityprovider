@@ -1,0 +1,7 @@
+Pattern design: The pattern designs that wase used is a combination of the mediator and the abstract factory pattern
+
+According to https://refactoring.guru/design-patterns/mediator, Mediator is a behavioral design pattern that lets you reduce chaotic dependencies between objects. The pattern restricts direct communications between the objects and forces them to collaborate only via a mediator object.
+
+According to https://refactoring.guru/design-patterns/abstract-factory, Abstract Factory is a creational design pattern that lets you produce families of related objects without specifying their concrete classes.
+
+A combination of the Mediator and Abstract Factory patterns in a hybrid way can generate a rebust and a flexible design, as the strength of the mediator comes from the ability to loose coopling and centerlizes the communication between the components, on the other hand we find that the Abstract Factory pattern can play a crucial role in facilitating object creation and simplifies class hierarchies. This, can also be useful during the modularity and the scalability of the project.
