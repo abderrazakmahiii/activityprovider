@@ -1,3 +1,4 @@
+// Implements the MediatorFactory class for creating mediator instances
 class MediatorFactory {
   constructor() {}
 

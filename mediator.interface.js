@@ -1,3 +1,4 @@
+// Define the Mediator interface
 Mediator = () => {
   this.notifyAwareness = (event, data) => {};
 };

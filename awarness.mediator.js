@@ -1,17 +1,20 @@
+// Implements the AwarenessMediator class, which serves as the central hub for communication between teachers, students, and the Learning Platform
 class AwarenessMediator {
   constructor() {}
 
-  connectTeacher(teacher) {
-    this.teachers = [teacher];
-  }
+  connectTeacher(teacher) {}
 
-  connectStudent(student) {
-    this.students = [];
-  }
+  connectStudent(student) {}
 
-  notifyAwareness(event, data) {
+  notifyTeacherAboutProgress(progressData) {
     for (const teacher of this.teachers) {
-      teacher.receiveNotification(event, data);
+      teacher.receiveNotification('submitProgress', progressData);
+    }
+  }
+
+  provideInsightsToTeacher(insights) {
+    for (const teacher of this.teachers) {
+      teacher.receiveNotification('provideInsights', insights);
     }
   }
 }
