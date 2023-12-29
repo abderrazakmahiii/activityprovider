@@ -5,3 +5,11 @@ According to https://refactoring.guru/design-patterns/mediator, Mediator is a be
 According to https://refactoring.guru/design-patterns/abstract-factory, Abstract Factory is a creational design pattern that lets you produce families of related objects without specifying their concrete classes.
 
 A combination of the Mediator and Abstract Factory patterns in a hybrid way can generate a rebust and a flexible design, as the strength of the mediator comes from the ability to loose coopling and centerlizes the communication between the components, on the other hand we find that the Abstract Factory pattern can play a crucial role in facilitating object creation and simplifies class hierarchies. This, can also be useful during the modularity and the scalability of the project.
+
+This phase of the project focuses on the 3 active agents: the teacher, the student and the awarness agent. It outlines the role of each agent and the relation with the other agents and components.
+
+First, after that the teacher create a course on the platform, the student will access and study, and the data will be tracked and sent to the awarness agent.
+
+Second, the awarness agent recieves the student's agent and submit insights to the teacher.
+
+Third, the teacher recieves the insights from the awarness agent and provide a feedback based on the insights
