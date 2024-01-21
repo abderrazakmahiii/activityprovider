@@ -8,7 +8,11 @@ As a summary of what I did:
 
 2. Choosing the Facade pattern was due to its simplicity as it provides a straightforward interface that hides the underlying complexity of the system, encapsulation as it protects the internal details of the system components from external users, a centralized control that serves as a single point of entry for accessing the system's functionality, maintainability as it improves the maintainability of the system by abstracting away internal details and its modular Design that allows for independent development and testing of system components.
 
-3. In the folder "Structure pattern diagrams", please find the diagrams of the previous topic.
+3. For the diagrams, please find the diagrams of the previous topic below:
+
+Component diagram: https://lucid.app/lucidchart/68aae446-012e-461e-9592-12306f9ab1ad/edit?viewport_loc=-1578%2C-1123%2C5657%2C2462%2C0_0&invitationId=inv_34f55fac-aa2c-4286-b8b8-447eb8cc93bb
+
+Sequence diagram: https://lucid.app/lucidchart/452aadf5-570c-4dfb-afd2-60a0f964e383/edit?viewport_loc=-643%2C-456%2C2560%2C1114%2C0_0&invitationId=inv_bafbaa6c-635b-49c2-b12c-e8d3fce8d936
 
 4. For the current topic, I used the chain of responsibility as my behaviour pattern, this way, the Activity Provider can leverage the chain of responsibility pattern to distribute the task of recommending activities based on different criteria. This pattern involves creating a chain of handlers, each responsible for handling specific types of recommendations and that will help the awareness agent to not have an excessive overload with data.
 
