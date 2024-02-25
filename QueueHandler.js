@@ -8,6 +8,8 @@ class QueueHandler implements Handler {
   
     handle(insight: Insight): void {
       this.insightsQueue.push(insight);
+      console.log('Queue Handler handles the insight');
+      super.handle(insight);
       // Process insights from the queue periodically
     }
   }
