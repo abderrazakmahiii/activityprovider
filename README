@@ -1,4 +1,0 @@
-Dear teacher,
-
-First, thanks for the chance to improve the code of the theme 6, I have updated the code in a way that establishes an hierarchy between the various
-“ConcreteHandlers”, focuses on decision making, errors handling and specifies the logic of the implementation of the chain of responsibility pattern.
