@@ -1,0 +1,45 @@
++-----------------------+       +---------------------+       +---------------------+       +---------------------+
+|     AwarenessAgent    |       |  AbstractHandler    |       | QueueHandler        |       | Concrete Handlers   |
+|-----------------------|       |---------------------|       |---------------------|       |---------------------|
+          |
+          |
+          |
+          |generateInsights()------------->|
+          |                                |
+          |                                |
+          |                                |handle(insight)------------>|
+          |                                                             |
+          |                                                             |QueueHandler.handle(insight)-------------->|
+          |                                                             |AbstractHandler.handle(insight)----------->|
+          |                                                             |LearningAssistantHandler.handle(insight)-->|
+          |                                                             |AbstractHandler.handle(insight)----------->|
+          |                                                             |TeacherHandler.handle(insight)------------>|
+          |<-------------------------------------------------------------------AwarenessAgent.trackStudentProgress()|
+          |<-------------------------------------------------------------AwarenessAgent.notifyTeacherAboutProgress()|
+
+
+AwarenessAgent:
+
+Initiates the process by calling generateInsights().
+Sends a request to the first handler in the chain.
+AbstractHandler:
+
+Represents the common interface for all concrete handlers.
+Defines the handle(insight) method.
+QueueHandler:
+
+Concrete handler in the chain.
+Implements the handle(insight) method specific to its functionality.
+Concrete Handlers:
+
+LearningAssistantHandler, TeacherHandler, etc.
+Additional concrete handlers in the chain, each implementing the handle(insight) method.
+AwarenessAgent (continued):
+
+Receives the processed insights after going through the entire chain of handlers.
+Initiates other methods such as trackStudentProgress() and notifyTeacherAboutProgress().
+End Result:
+
+The sequence illustrates how the generateInsights() method in AwarenessAgent triggers a chain of handler calls.
+Each handler processes the insight or passes it to the next handler in the chain.
+The process concludes with the execution of additional methods in AwarenessAgent based on the insights received.
