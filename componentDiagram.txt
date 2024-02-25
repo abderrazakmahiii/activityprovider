@@ -1,0 +1,92 @@
+-------------------------       -----------------------
+|  AwarenessAgent       |       |  HandlerRegistry    |
+|-----------------------|       |---------------------|
+|                       |       |                     |
+| - generateInsights()  |       | - registerHandler() |
+|                       |       | - getHandler()      |
+| - trackStudentProgress|       +---------------------+
+|                       |
++-----------------------+
+          |   
+          |  handle insights 
+          V  
++-----------------------+
+|  AbstractHandler      |
+|-----------------------|
+|                       |
+| - setSuccessor()      |
+| - handle()            |
+|                       |
++-----------------------+
+          |   
+          |  handle insights 
+          V   
++-----------------------+
+|  QueueHandler         |
+|-----------------------|
+|                       |
+|                       |
+|                       |
++-----------------------+
+          |   
+          |  handle insights 
+          V  
++------------------------+
+|LearningAssistantHandler|
+|------------------------|
+|                        |
+|                        |
+|                        |
++------------------------+
+          |   
+          |  handle insights 
+          V  
++-----------------------+
+|  TeacherHandler       |
+|-----------------------|
+|                       |
+|                       |
+|                       |
++-----------------------+
+
+
+Component Diagram Description:
+AwarenessAgent Component:
+Represents the AwarenessAgent class.
+Has a dependency on the HandlerRegistry to dynamically register and manage handlers.
+
+Handler Components:
+QueueHandler Component:
+Represents the QueueHandler class.
+Extends AbstractHandler.
+
+LearningAssistantHandler Component:
+Represents the LearningAssistantHandler class.
+Extends AbstractHandler.
+
+TeacherHandler Component:
+Represents the TeacherHandler class.
+Extends AbstractHandler.
+
+AbstractHandler Component:
+Represents the AbstractHandler class.
+Common interface for all concrete handlers.
+Has a dependency on HandlerRegistry for setting successors dynamically.
+
+HandlerRegistry Component:
+Manages the dynamic registration of handlers.
+Keeps track of registered handlers (instances of AbstractHandler).
+
+Relationships:
+AwarenessAgent → HandlerRegistry:
+
+AwarenessAgent has a dependency on HandlerRegistry to manage handlers.
+AwarenessAgent → AbstractHandler:
+
+AwarenessAgent has associations with each concrete handler (QueueHandler, LearningAssistantHandler, TeacherHandler).
+AbstractHandler → HandlerRegistry:
+
+AbstractHandler has a dependency on HandlerRegistry for setting successors dynamically.
+Concrete Handlers → AbstractHandler:
+
+Concrete Handlers (QueueHandler, LearningAssistantHandler, TeacherHandler) extend the AbstractHandler.

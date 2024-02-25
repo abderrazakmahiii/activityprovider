@@ -1,2 +1,0 @@
-Sequence diagram: https://lucid.app/lucidchart/d2291fb5-6714-4305-898c-b963c60042e6/edit?invitationId=inv_d664b924-819c-47b6-b38a-20e5979d5b02
-Component diagram: https://app.creately.com/d/M1JyceR7VDE/view
