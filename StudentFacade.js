@@ -1,17 +1,17 @@
 // Handles interactions with the Student
 class StudentFacade {
-    private student: Student;
-  
-    constructor(student: Student) {
+  constructor(student) {
       this.student = student;
-    }
-  
-    accessCourseContent(courseId: string): Promise<void> {
-      this.student.accessCourseContent(courseId);
-    }
-  
-    provideFeedback(studentId: string, courseId: string, feedback: string): Promise<void> {
-      this.student.provideFeedback(studentId, courseId, feedback);
-    }
   }
-  
+
+  accessCourseContent(courseId) {
+      this.student.accessCourseContent(courseId);
+  }
+
+  provideFeedback(studentId, courseId, feedback) {
+      this.student.provideFeedback(studentId, courseId, feedback);
+  }
+}
+
+// Export the StudentFacade class
+module.exports = StudentFacade;

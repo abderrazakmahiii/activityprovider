@@ -1,30 +1,23 @@
 // Defines the LearningPlatformFacade interface
-interface LearningPlatformFacade {
-    shareCourse(courseId): Promise<void>;
-    trackStudentProgress(studentId, courseId): Promise<void>;
-    provideInsightsToTeacher(teacherId, insights: Insight[]): Promise<void>;
-  }
-  
-  // Implements the LearningPlatformFacade interface
-  class LearningPlatformFacade {
-    private awarenessAgentFacade: AwarenessAgentFacade;
-    private teacherFacade: TeacherFacade;
-  
-    constructor() {
+class LearningPlatformFacade {
+  // Constructor that initializes instances of AwarenessAgentFacade and TeacherFacade
+  constructor() {
       this.awarenessAgentFacade = new AwarenessAgentFacade();
       this.teacherFacade = new TeacherFacade();
-    }
-  
-    shareCourse(courseId: string): Promise<void> {
-      return this.awarenessAgentFacade.shareCourse(courseId);
-    }
-  
-    trackStudentProgress(studentId: string, courseId: string): Promise<void> {
-      return this.awarenessAgentFacade.trackStudentProgress(studentId, courseId);
-    }
-  
-    provideInsightsToTeacher(teacherId: string, insights: Insight[]): Promise<void> {
-      return this.teacherFacade.receiveInsights(teacherId, insights);
-    }
   }
-  
+
+  // Method to share a course using the AwarenessAgentFacade
+  shareCourse(courseId) {
+      return this.awarenessAgentFacade.shareCourse(courseId);
+  }
+
+  // Method to track student progress using the AwarenessAgentFacade
+  trackStudentProgress(studentId, courseId) {
+      return this.awarenessAgentFacade.trackStudentProgress(studentId, courseId);
+  }
+
+  // Method to provide insights to a teacher using the TeacherFacade
+  provideInsightsToTeacher(teacherId, insights) {
+      return this.teacherFacade.receiveInsights(teacherId, insights);
+  }
+}

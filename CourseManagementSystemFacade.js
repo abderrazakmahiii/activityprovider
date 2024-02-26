@@ -1,17 +1,20 @@
 // Handles interactions with the Course Management System
 class CourseManagementSystemFacade {
-    private courseManagementSystem: CourseManagementSystem;
-  
-    constructor(courseManagementSystem: CourseManagementSystem) {
-      this.courseManagementSystem = courseManagementSystem;
-    }
-  
-    manageStudentEnrollments(studentId: string, courseId: string): Promise<void> {
-      this.courseManagementSystem.manageStudentEnrollments(studentId, courseId);
-    }
-  
-    updateCourseData(courseId: string, courseData: CourseData): Promise<void> {
-      this.courseManagementSystem.updateCourseData(courseId, courseData);
-    }
+  // Private property to store an instance of CourseManagementSystem
+  constructor(courseManagementSystem) {
+    // Initialize the courseManagementSystem property with the provided instance
+    this.courseManagementSystem = courseManagementSystem;
   }
-  
+
+  // Method to manage student enrollments using the Course Management System
+  manageStudentEnrollments(studentId, courseId) {
+    // Call the manageStudentEnrollments method of the courseManagementSystem
+    this.courseManagementSystem.manageStudentEnrollments(studentId, courseId);
+  }
+
+  // Method to update course data using the Course Management System
+  updateCourseData(courseId, courseData) {
+    // Call the updateCourseData method of the courseManagementSystem
+    this.courseManagementSystem.updateCourseData(courseId, courseData);
+  }
+}

@@ -47,8 +47,6 @@ app.post('/parameters', async (req, res) => {
     res.json(parameters.userProgressData);
   });
 
-  // ... and so on for all endpoints
-
   res.json({ message: 'Parameters updated' });
 });
 

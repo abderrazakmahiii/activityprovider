@@ -1,18 +1,24 @@
 // Represents the data structure for storing student progress information
 class StudentProgressData {
-    constructor(studentId: string, courseId: string, assignments: Assignment[]) {
+  constructor(studentId, courseId, assignments) {
       this.studentId = studentId;
       this.courseId = courseId;
       this.assignments = assignments;
-    }
-  
-    class Assignment {
-      constructor(assignmentId: string, title: string, status: string, submissionDate: Date) {
-        this.assignmentId = assignmentId;
-        this.title = title;
-        this.status = status;
-        this.submissionDate = submissionDate;
-      }
-    }
   }
-  
+}
+
+// Represents the data structure for an assignment
+class Assignment {
+  constructor(assignmentId, title, status, submissionDate) {
+      this.assignmentId = assignmentId;
+      this.title = title;
+      this.status = status;
+      this.submissionDate = submissionDate;
+  }
+}
+
+// Export the classes
+module.exports = {
+  StudentProgressData,
+  Assignment
+};

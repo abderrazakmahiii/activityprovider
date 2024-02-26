@@ -1,13 +1,15 @@
+// Import required libraries
 const express = require('express');
 const bodyParser = require('body-parser');
 
+// Create an Express application
 const app = express();
 const port = process.env.PORT || 3001;
 
 // Middleware to parse JSON requests
 app.use(bodyParser.json());
 
-// Abstract factory interface
+// Define an abstract factory interface for creating data
 class DataFactory {
   createData(userId) {}
 }
@@ -56,6 +58,7 @@ class DemographicDataFactory extends DataFactory {
 // Client class using the abstract factory
 class ActivityProvider {
   constructor() {
+    // Initialize data factories for different types
     this.dataFactories = {
       lessonCompletionRates: new LessonCompletionRatesFactory(),
       errorLogs: new ErrorLogsFactory(),
@@ -64,6 +67,7 @@ class ActivityProvider {
     };
   }
 
+  // Method to get data based on the provided factory name and user ID
   getData(factoryName, userId) {
     // Get the factory based on the provided name
     const factory = this.dataFactories[factoryName];
@@ -91,4 +95,5 @@ console.log('Lesson Completion Rates:', lessonCompletionRatesData);
 const userPathsData = activityProvider.getData('userPaths', 'user456');
 console.log('User Paths:', userPathsData);
 
+// Export the Express application
 module.exports = app;

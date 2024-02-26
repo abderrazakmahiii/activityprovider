@@ -1,17 +1,24 @@
-// Implements the AwarenessMediator class, which serves as the central hub for communication between teachers, students, and the Learning Platform
+// Implements the AwarenessMediator class
 class AwarenessMediator {
-  constructor() {}
+  constructor() {
+  }
 
-  connectTeacher(teacher) {}
+  // Method to connect a teacher to the mediator
+  connectTeacher(teacher) {
+  }
 
-  connectStudent(student) {}
+  // Method to connect a student to the mediator
+  connectStudent(student) {
+  }
 
+  // Method to notify teachers about progress
   notifyTeacherAboutProgress(progressData) {
     for (const teacher of this.teachers) {
       teacher.receiveNotification('submitProgress', progressData);
     }
   }
 
+  // Method to provide insights to teachers
   provideInsightsToTeacher(insights) {
     for (const teacher of this.teachers) {
       teacher.receiveNotification('provideInsights', insights);
@@ -19,4 +26,5 @@ class AwarenessMediator {
   }
 }
 
+// Export the AwarenessMediator class
 export default AwarenessMediator;

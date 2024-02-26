@@ -1,13 +1,13 @@
 // Handles interactions with the Teacher
 class TeacherFacade {
-    private teacher: Teacher;
-  
-    constructor(teacher: Teacher) {
+  constructor(teacher) {
       this.teacher = teacher;
-    }
-  
-    receiveInsights(teacherId: string, insights: Insight[]): Promise<void> {
-      this.teacher.receiveInsights(teacherId, insights);
-    }
   }
-  
+
+  receiveInsights(teacherId, insights) {
+      this.teacher.receiveInsights(teacherId, insights);
+  }
+}
+
+// Export the class
+module.exports = TeacherFacade;

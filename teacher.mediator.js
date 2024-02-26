@@ -1,7 +1,7 @@
 // Implements the TeacherMediator class, which handles communication between teachers and the AwarenessAgent
 class TeacherMediator {
   constructor(mediatorFactory) {
-    this.mediatorFactory = mediatorFactory;
+      this.mediatorFactory = mediatorFactory;
   }
 
   connectStudent() {}
@@ -9,4 +9,5 @@ class TeacherMediator {
   notifyAwareness(event, data) {}
 }
 
-export default TeacherMediator;
+// Export the class
+module.exports = TeacherMediator;
